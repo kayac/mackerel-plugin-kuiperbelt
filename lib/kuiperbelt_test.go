@@ -52,10 +52,10 @@ func TestParse(t *testing.T) {
 	fmt.Println(stat)
 	assert.Nil(t, err)
 	// Kuiperbelt Stats
-	assert.EqualValues(t, stat["conn.current"], 10)
-	assert.EqualValues(t, stat["conn.total"], 123)
-	assert.EqualValues(t, stat["conn.errors"], 3)
-	assert.EqualValues(t, stat["conn.closing"], 2)
-	assert.EqualValues(t, stat["messages.total"], 9801)
-	assert.EqualValues(t, stat["messages.errors"], 42)
+	assert.EqualValues(t, stat["conn_current"], 10)
+	assert.EqualValues(t, stat["conn_total"], 123)
+	assert.EqualValues(t, stat["conn_errors"], 3)
+	assert.EqualValues(t, stat["conn_closing"], 2)
+	assert.EqualValues(t, stat["messages_total"], 9801)
+	assert.EqualValues(t, stat["messages_errors"], 42)
 }

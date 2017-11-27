@@ -44,12 +44,12 @@ func (m Plugin) FetchMetrics() (map[string]float64, error) {
 		return nil, err
 	}
 	ret := make(map[string]float64, 6)
-	ret["conn.current"] = stats.Connections
-	ret["conn.total"] = stats.TotalConnections
-	ret["conn.errors"] = stats.ConnectErrors
-	ret["conn.closing"] = stats.ClosingConnections
-	ret["messages.total"] = stats.TotalMessages
-	ret["messages.errors"] = stats.MessageErrors
+	ret["conn_current"] = stats.Connections
+	ret["conn_total"] = stats.TotalConnections
+	ret["conn_errors"] = stats.ConnectErrors
+	ret["conn_closing"] = stats.ClosingConnections
+	ret["messages_total"] = stats.TotalMessages
+	ret["messages_errors"] = stats.MessageErrors
 
 	return ret, nil
 }
@@ -64,18 +64,18 @@ func (m Plugin) GraphDefinition() map[string]mp.Graphs {
 			Label: (labelPrefix + " Connections"),
 			Unit:  mp.UnitInteger,
 			Metrics: []mp.Metrics{
-				{Name: "current", Label: "Current", Diff: false},
-				{Name: "closing", Label: "Closing", Diff: false},
-				{Name: "total", Label: "New", Diff: true},
-				{Name: "errors", Label: "Errors", Diff: true},
+				{Name: "conn_current", Label: "Current", Diff: false},
+				{Name: "conn_closing", Label: "Closing", Diff: false},
+				{Name: "conn_total", Label: "New", Diff: true},
+				{Name: "conn_errors", Label: "Errors", Diff: true},
 			},
 		},
 		"messages": {
 			Label: (labelPrefix + " Messages"),
 			Unit:  mp.UnitInteger,
 			Metrics: []mp.Metrics{
-				{Name: "total", Label: "Messages", Diff: true},
-				{Name: "errors", Label: "Errors", Diff: true},
+				{Name: "messages_total", Label: "Messages", Diff: true},
+				{Name: "messages_errors", Label: "Errors", Diff: true},
 			},
 		},
 	}
